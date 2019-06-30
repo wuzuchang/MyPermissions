@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <!--android.permission.READ_CONTACTS允许程序读取用户联系人数据-->
     <uses-permission android:name="android.permission.READ_CONTACTS" />

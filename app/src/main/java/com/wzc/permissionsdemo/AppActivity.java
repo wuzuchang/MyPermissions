@@ -14,6 +14,7 @@ public class AppActivity extends Activity implements View.OnClickListener {
 
     private Activity mActivity = this;
     private Button mBtReadPhone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,21 +25,21 @@ public class AppActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v==mBtReadPhone){
-            PermissionManager.getInstance().requestPermissions(this, Manifest.permission.READ_PHONE_STATE, new PermissionCallBack() {
+        if (v == mBtReadPhone) {
+            PermissionManager.getInstance().requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.SEND_SMS}, new PermissionCallBack() {
                 @Override
                 public void agree(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"同意"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "同意" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void refusal(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"拒绝"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "拒绝" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void alwaysRefusal(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"不再提醒申请"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "不再提醒申请" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
             });
         }

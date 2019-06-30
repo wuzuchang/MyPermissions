@@ -49,20 +49,20 @@ public class V4AppFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == mBtWriteContacts) {
-            PermissionManager.getInstance().requestPermissions(this, Manifest.permission.WRITE_CONTACTS, new PermissionCallBack() {
+            PermissionManager.getInstance().requestPermissions(this, new String[]{Manifest.permission.WRITE_CONTACTS}, new PermissionCallBack() {
                 @Override
                 public void agree(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"同意"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "同意" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void refusal(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"拒绝"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "拒绝" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void alwaysRefusal(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"不再提醒申请"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "不再提醒申请" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
             });
         }

@@ -32,7 +32,7 @@ public class PermissionManager {
      * @param callBack    callBack
      */
 
-    public void requestPermissions(FragmentActivity mActivity, String permissions, PermissionCallBack callBack) {
+    public void requestPermissions(FragmentActivity mActivity, String[] permissions, PermissionCallBack callBack) {
         if (mActivity == null) return;
         PermissionV4AppFragment fragment = (PermissionV4AppFragment) mActivity.getSupportFragmentManager().findFragmentByTag(TAG_PERMISSION);
         if (fragment == null) {
@@ -44,7 +44,7 @@ public class PermissionManager {
                     .commitAllowingStateLoss();
             fragmentManager.executePendingTransactions();
         }
-        fragment.requestMyPermissions(new String[]{permissions}, callBack);
+        fragment.requestMyPermissions(permissions, callBack);
     }
 
     /**
@@ -54,7 +54,7 @@ public class PermissionManager {
      * @param permissions 权限
      * @param callBack    callBack
      */
-    public void requestPermissions(Activity mActivity, String permissions, PermissionCallBack callBack) {
+    public void requestPermissions(Activity mActivity, String[] permissions, PermissionCallBack callBack) {
         if (mActivity == null) return;
         PermissionAppFragment fragment = (PermissionAppFragment) mActivity.getFragmentManager().findFragmentByTag(TAG_PERMISSION);
         if (fragment == null) {
@@ -66,7 +66,7 @@ public class PermissionManager {
                     .commitAllowingStateLoss();
             fragmentManager.executePendingTransactions();
         }
-        fragment.requestMyPermissions(new String[]{permissions}, callBack);
+        fragment.requestMyPermissions(permissions, callBack);
     }
 
     /**
@@ -76,7 +76,7 @@ public class PermissionManager {
      * @param permissions 权限
      * @param callBack    callBack
      */
-    public void requestPermissions(Fragment mFragment, String permissions, PermissionCallBack callBack) {
+    public void requestPermissions(Fragment mFragment, String[] permissions, PermissionCallBack callBack) {
         if (mFragment == null) return;
         PermissionV4AppFragment fragment = (PermissionV4AppFragment) mFragment.getChildFragmentManager().findFragmentByTag(TAG_PERMISSION);
         if (fragment == null) {
@@ -88,7 +88,7 @@ public class PermissionManager {
                     .commitAllowingStateLoss();
             fragmentManager.executePendingTransactions();
         }
-        fragment.requestMyPermissions(new String[]{permissions}, callBack);
+        fragment.requestMyPermissions(permissions, callBack);
     }
 
     /**
@@ -99,7 +99,7 @@ public class PermissionManager {
      * @param callBack    callBack
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public void requestPermissions(android.app.Fragment mFragment, String permissions, PermissionCallBack callBack) {
+    public void requestPermissions(android.app.Fragment mFragment, String[] permissions, PermissionCallBack callBack) {
         if (mFragment == null) return;
         PermissionAppFragment fragment = (PermissionAppFragment) mFragment.getChildFragmentManager().findFragmentByTag(TAG_PERMISSION);
         if (fragment == null) {
@@ -111,6 +111,6 @@ public class PermissionManager {
                     .commitAllowingStateLoss();
             fragmentManager.executePendingTransactions();
         }
-        fragment.requestMyPermissions(new String[]{permissions}, callBack);
+        fragment.requestMyPermissions(permissions, callBack);
     }
 }

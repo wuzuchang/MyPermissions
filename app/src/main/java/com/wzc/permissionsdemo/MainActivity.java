@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtOpenActivity;
     private Button mBtOpenAppFragment;
     private Button mBtOpenV4AppFragment;
-    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,26 +34,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtOpenAppFragment.setOnClickListener(this);
         mBtOpenV4AppFragment.setOnClickListener(this);
 
-        fragmentManager = getSupportFragmentManager();
     }
 
     @Override
     public void onClick(View v) {
         if (v == mBtCallPhone) {
-            PermissionManager.getInstance().requestPermissions(this, Manifest.permission.CALL_PHONE, new PermissionCallBack() {
+            PermissionManager.getInstance().requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE, Manifest.permission.CAMERA}, new PermissionCallBack() {
                 @Override
                 public void agree(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"同意"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "同意" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void refusal(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"拒绝"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "拒绝" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void alwaysRefusal(String permissions) {
-                    Toast.makeText(mActivity.getApplicationContext(),"不再提醒申请"+permissions+"权限",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.getApplicationContext(), "不再提醒申请" + permissions + "权限", Toast.LENGTH_SHORT).show();
                 }
             });
         } else if (v == mBtOpenActivity) {
