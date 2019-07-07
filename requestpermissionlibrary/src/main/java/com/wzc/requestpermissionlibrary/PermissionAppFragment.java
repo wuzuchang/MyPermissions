@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -29,7 +30,7 @@ public class PermissionAppFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setRetainInstance(true);
+        setRetainInstance(true);
     }
 
     public void requestMyPermissions(@NonNull String[] permissions, PermissionCallBack callBack) {
@@ -43,21 +44,19 @@ public class PermissionAppFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Log.d("wzc", "requestCode = " + requestCode + "permissions = " + permissions.toString() + "grantResults = " + grantResults.toString());
+        Log.d("wzc", "requestCode = " + requestCode + "permissions = " + Arrays.toString(permissions) + "grantResults = " + Arrays.toString(grantResults));
+        if (permissionCallBack == null) return;
         int length = grantResults.length;
         for (int i = 0; i < length; i++) {
             int grantResult = grantResults[i];
             if (grantResult == PackageManager.PERMISSION_GRANTED) {
-                if (permissionCallBack != null)
-                    permissionCallBack.agree(permissions[i]);
+                permissionCallBack.agree(permissions[i]);
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (!this.shouldShowRequestPermissionRationale(permissions[i])) {
-                        if (permissionCallBack != null)
-                            permissionCallBack.alwaysRefusal(permissions[i]);
+                        permissionCallBack.alwaysRefusal(permissions[i]);
                     } else {
-                        if (permissionCallBack != null)
-                            permissionCallBack.refusal(permissions[i]);
+                        permissionCallBack.refusal(permissions[i]);
                     }
                 }
             }
