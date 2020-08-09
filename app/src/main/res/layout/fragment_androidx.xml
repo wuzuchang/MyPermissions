@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".AndroidxFragment">
+
+    <!-- android.permission.READ_CONTACTS允许程序读取用户联系人数据-->
+    <Button
+        android:id="@+id/bt_read_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="read_contacts"
+        android:textAllCaps="false" />
+
+    <!-- android.permission.WRITE_CONTACTS写入但不读取用户联系人数据 -->
+    <Button
+        android:id="@+id/bt_write_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="write_contacts"
+        android:textAllCaps="false" />
+</LinearLayout>
