@@ -1,6 +1,20 @@
 # PermissionsDemo
 一个简单的权限申请库
 
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.wuzuchang:MyPermissions:1.1.0'
+	}
+
 1.接口
 ```java
  //在androidx.fragment.app.FragmentActivity中申请权限
