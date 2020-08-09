@@ -3,14 +3,12 @@
 
 1.接口
 ```java
- //在android.support.v4.app.FragmentActivity中申请权限
+ //在androidx.fragment.app.FragmentActivity中申请权限
  public void requestPermissions(FragmentActivity mActivity, String[] permissions, PermissionCallBack callBack)
  //在android.app.Activity中申请权限
  public void requestPermissions(Activity mActivity, String[] permissions, PermissionCallBack callBack) 
- //在android.support.v4.app.Fragment中申请权限
+ //在androidx.fragment.app.Fragment中申请权限
  public void requestPermissions(Fragment mFragment, String[] permissions, PermissionCallBack callBack)
- //在android.app.Fragment中申请权限
- public void requestPermissions(android.app.Fragment mFragment, String[] permissions, PermissionCallBack callBack)
 ```
 2.例子
 ```java
