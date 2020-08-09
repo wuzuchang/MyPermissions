@@ -1,16 +1,28 @@
 # PermissionsDemo
 一个简单的权限申请库
 
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.wuzuchang:MyPermissions:1.1.0'
+	}
+
 1.接口
 ```java
- //在android.support.v4.app.FragmentActivity中申请权限
+ //在androidx.fragment.app.FragmentActivity中申请权限
  public void requestPermissions(FragmentActivity mActivity, String[] permissions, PermissionCallBack callBack)
  //在android.app.Activity中申请权限
  public void requestPermissions(Activity mActivity, String[] permissions, PermissionCallBack callBack) 
- //在android.support.v4.app.Fragment中申请权限
+ //在androidx.fragment.app.Fragment中申请权限
  public void requestPermissions(Fragment mFragment, String[] permissions, PermissionCallBack callBack)
- //在android.app.Fragment中申请权限
- public void requestPermissions(android.app.Fragment mFragment, String[] permissions, PermissionCallBack callBack)
 ```
 2.例子
 ```java
