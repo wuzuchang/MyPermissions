@@ -38,7 +38,7 @@ public class PermissionManager {
     }
 
     /**
-     * android.support.v4.app.FragmentActivity 中申请权限
+     * androidx.fragment.app.FragmentActivity 中申请权限
      *
      * @param activity   mActivity
      * @param permissions 权限
